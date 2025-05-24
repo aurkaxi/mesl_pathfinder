@@ -5,7 +5,7 @@ import networkx as nx
 
 
 def visualize_search(
-    order: List,
+    order: List[int],
     title: str,
     G: nx.Graph,
     pos: dict,
@@ -16,8 +16,8 @@ def visualize_search(
         G, pos, with_labels=True, node_color="lightblue", node_size=700, font_size=16
     )
     prev_visited = set()
-    for visited in order:
-        new_nodes = visited - prev_visited
+    for idx, visited in enumerate(order):
+        new_nodes = {visited} - prev_visited
         if prev_visited:
             nx.draw_networkx_nodes(
                 G, pos, nodelist=list(prev_visited), node_color="orange"
@@ -27,14 +27,13 @@ def visualize_search(
         # Show currently visited list
         plt.gcf().texts.clear()
         plt.text(
-            0.05,
-            0.95,
-            f"Visited: {sorted(visited)}",
+            0,
+            0,
+            f"Visited: {order[: idx + 1]}",
             fontsize=14,
             transform=plt.gca().transAxes,
-            verticalalignment="top",
-            bbox=dict(facecolor="white", alpha=0.7, edgecolor="gray"),
+            bbox=dict(facecolor="white", edgecolor="gray"),
         )
         plt.pause(1.5)
-        prev_visited = set(visited)
+        prev_visited.add(visited)
     plt.show()
