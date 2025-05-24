@@ -5,10 +5,11 @@ from typing import List
 import matplotlib.pyplot as plt
 import networkx as nx
 
-from algorithms import bfs
+from algorithms import bfs, dfs
 
 algorithms: dict[str, tuple[ModuleType, str]] = {
     "bfs": (bfs, "Breadth-First Search"),
+    "dfs": (dfs, "Depth-First Search"),
 }
 
 
