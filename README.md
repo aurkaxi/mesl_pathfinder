@@ -11,4 +11,9 @@ $ python main.py <algorithm_name> [number_of_nodes] [number_of_edges]
 - `[number_of_edges]`: (Optional) The number of edges to consider.
 
 # Algorithms
-- `bfs`: Breadth-First Search
+- [x] `dfs`: Depth-First Search
+- [x] `bfs`: Breadth-First Search
+- [ ] `flood_fill`: Flood Fill
+- [ ] `dijkstra`: Dijkstra’s Algorithm
+- [ ] `a_star`: A* (A-Star) Algorithm
+- [ ] `greedy_best_first`: Greedy Best-First Search
